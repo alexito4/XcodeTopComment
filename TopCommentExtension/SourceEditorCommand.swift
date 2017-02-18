@@ -3,8 +3,8 @@ import Foundation
 import XcodeKit
 
 class SourceEditorCommand: NSObject, XCSourceEditorCommand {
-    
-    func perform(with invocation: XCSourceEditorCommandInvocation, completionHandler: (NSError?) -> Void ) -> Void {
+
+    public func perform(with invocation: XCSourceEditorCommandInvocation, completionHandler: @escaping (Error?) -> Void) {
         
         switch invocation.commandIdentifier {
         case "com.alejandromp.XcodeTopComment.TopCommentExtension.RemoveTopComment":
@@ -17,6 +17,5 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
         
         completionHandler(nil)
     }
-    
 }
 

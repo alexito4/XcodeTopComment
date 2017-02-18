@@ -4,7 +4,7 @@ import Foundation
 func removeTopComment(from lines: NSMutableArray) {
     
     guard
-        let firstLine = (lines.firstObject as? String) where firstLine.hasPrefix("//")
+        let firstLine = (lines.firstObject as? String), firstLine.hasPrefix("//")
         else {
             return
     }
@@ -24,7 +24,7 @@ func removeTopComment(from lines: NSMutableArray) {
 func changeDate(in lines: NSMutableArray) {
     
     guard
-        let firstLine = (lines.firstObject as? String) where firstLine.hasPrefix("//")
+        let firstLine = (lines.firstObject as? String), firstLine.hasPrefix("//")
         else {
             return
     }
@@ -34,7 +34,7 @@ func changeDate(in lines: NSMutableArray) {
     }) as! String
     
     let pattern = "\\d\\d([/])\\d\\d([/])\\d\\d\\d\\d"
-    let regex = try! RegularExpression(pattern: pattern, options: [])
+    let regex = try! NSRegularExpression(pattern: pattern, options: [])
     
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "dd/MM/yyyy"
